@@ -5,7 +5,7 @@
 #define COLS 4
 
 // Atualização dos pinos de acordo com as novas conexões
-const uint8_t row_pins[ROWS] = {8, 7, 6, 5}; // Pinos conectados às linhas R1, R2, R3, R4 const 
+const uint8_t row_pins[ROWS] = {8, 7, 6, 5}; // Pinos conectados às linhas R1, R2, R3, R4 
 const uint8_t col_pins[COLS] = {4, 3, 2, 1}; // Pinos conectados às colunas C1, C2, C3, C4
 
 // Mapa de teclas do teclado matricial
