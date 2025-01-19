@@ -52,3 +52,4 @@ Inicialmente, foi criado o arquivo 'diagram.json' na plataforma Wokwi. Em seguid
     - Marcus Vinicius
     
 **LINK DO VÍDEO EXPLICATIVO**
+[Link do vídeo explicativo da tarefa](https://drive.google.com/file/d/1frVzFqhg3fgUrVjR60DcZGbXYbhV1cLV/view?usp=sharing)
