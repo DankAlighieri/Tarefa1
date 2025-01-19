@@ -60,12 +60,9 @@ char ler_keypad() {
     // Verificar a pressão das teclas
     for (int row = 0; row < ROWS; row++) {
         gpio_put(row_pins[row], 1);  // Definir a linha atual como nível alto
-        printf("Linha %d\n", row);
         for (int col = 0; col < COLS; col++) {
-            printf("Coluna %d\n", col);
             // Se houver uma tecla pressionada
             if (gpio_get(col_pins[col])) {
-                printf("Tecla pressionada %c\n", key_map[row][col]);
                 // A tecla foi pressionada, retornar o valor
                 gpio_put(row_pins[row], 0);  // Retornar ao estado baixo
                 sleep_ms(20);  // Aguardar um tempo para evitar a leitura incorreta
