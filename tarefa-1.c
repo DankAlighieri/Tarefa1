@@ -174,6 +174,7 @@ int main() {
                     break;
             }
             sleep_ms(100);
+            colorir(0, 0, 0); // Desliga todos os leds
             key = ler_keypad();
         }
     }
