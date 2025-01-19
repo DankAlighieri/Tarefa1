@@ -45,7 +45,7 @@ void inicializar_keypad() {
     for (int i = 0; i < ROWS; i++) {
         gpio_init(row_pins[i]);
         gpio_set_dir(row_pins[i], GPIO_OUT);
-        gpio_put(row_pins[i], 0);  // Definir o valor inicial como alto
+        gpio_put(row_pins[i], 0);  // Definir o valor inicial como baixo
     }
 
     // Inicializar os pinos das colunas (COLS) como entrada com pull-down
@@ -59,20 +59,20 @@ void inicializar_keypad() {
 char ler_keypad() {
     // Verificar a pressão das teclas
     for (int row = 0; row < ROWS; row++) {
-        gpio_put(row_pins[row], 1);  // Definir a linha atual como baixo
+        gpio_put(row_pins[row], 1);  // Definir a linha atual como nível alto
         printf("Linha %d\n", row);
         for (int col = 0; col < COLS; col++) {
             printf("Coluna %d\n", col);
-            // Se houver uma tecla pressionada (linha baixa e coluna alta)
+            // Se houver uma tecla pressionada
             if (gpio_get(col_pins[col])) {
                 printf("Tecla pressionada %c\n", key_map[row][col]);
                 // A tecla foi pressionada, retornar o valor
-                gpio_put(row_pins[row], 0);  // Voltar a linha para alto
+                gpio_put(row_pins[row], 0);  // Retornar ao estado baixo
                 sleep_ms(20);  // Aguardar um tempo para evitar a leitura incorreta
                 return key_map[row][col];     // Retornar a tecla pressionada
             }
         }
-        gpio_put(row_pins[row], 0);  // Voltar a linha para alto
+        gpio_put(row_pins[row], 0);  // Retorna ao estado baixo após iteração
     }
     return '\0';  // Retornar nulo se nenhuma tecla foi pressionada
 }
